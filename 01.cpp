@@ -4,7 +4,8 @@ void doble(int num){
 }
 int main(){
     int num=10;
+    int*ptr=&num;
     doble(num);
-    std::cout<<num;
+    std::cout<<num<<"---"<<*(ptr+1);
 }
 //here we are storin the pass by referce n pass by value man
