@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build active C++ file",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "New-Item -ItemType Directory -Force -Path '${workspaceFolder}\\build' | Out-Null; & 'C:\\msys64\\mingw64\\bin\\g++.exe' -std=c++17 -Wall -Wextra -g '${file}' -o '${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe'"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "run active C++ file",
+      "type": "shell",
+      "command": "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+      "dependsOn": "build active C++ file",
+      "problemMatcher": []
+    }
+  ]
+}
