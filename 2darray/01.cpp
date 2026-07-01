@@ -19,4 +19,26 @@ int main(){
         
     }
     std::cout<<maxsum<<" "<<idx<<std::endl;
+    //here we have to print the arary in the spiral order man 
+
+    int top=0;
+    
+    int left=0;
+    
+
+
+    for(int i=0;i<3;i++){
+        std::cout<<arr[i][left]<<" ";
+    }
+    left++;
+    for(int i=2;i>=0;i--){
+        std::cout<<arr[i][left]<<" ";
+    }
+    left++;
+    for(int i=0;i<3;i++){
+        std::cout<<arr[i][left]<<" ";
+    }
+    left++;
+    
+
 }
